@@ -8,7 +8,6 @@ janela.title("calculadora")
 janela.geometry("350x150")
 
 def clicar_botao(valor):
-    # Pega o texto do próprio botão (ex: "1", "2", "3") e insere no visor
     visor.insert(tk.END, valor)
     
 def limpar():
@@ -55,8 +54,6 @@ def calcular():
         partes = texto_visor.split("%")
         num1 = float(partes[0])
         num2 = float(partes[1])
-    
-        # Calcula a porcentagem: num1 % de num2 (ex: 50% de 200 = 200 * (50 / 100))
         resultado = num2 * (num1 / 100)
 
     else:
@@ -64,9 +61,6 @@ def calcular():
 
     visor.delete(0, tk.END)
     visor.insert(tk.END, str(resultado))
-
-
-
 
 visor = tk.Entry(janela, font=("Arial", 16), justify="right", bd=5, relief=tk.SUNSET if hasattr(tk, 'SUNSET') else tk.GROOVE)
 visor.place(relx=0.5, rely=0.37, anchor=tk.CENTER, width=200, height=40)
@@ -132,14 +126,6 @@ botaoapagarum.grid(row = 0, column = 0, pady=0, padx = 0)
 
 botaoponto = tk.Button(quadro_botoes, text=".", width=5, height=1, font=("Arial", 10),command=lambda: clicar_botao("."))
 botaoponto.grid(row = 4, column = 2, pady=0, padx = 0)
-
-
-
-
-
-
-
-
 
 # Loop principal da janela
 janela.mainloop()
